@@ -54,7 +54,7 @@ const Content = styled(DialogContent)`
 
 const CloseButton = styled(UnstyledButton)`
   align-self: flex-end;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
 `;
 
 const NavList = styled.nav`
@@ -66,7 +66,7 @@ const NavList = styled.nav`
 `;
 
 const NavLink = styled.a`
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   text-decoration: none !important;
   font-weight: ${WEIGHTS.medium};
 `;
@@ -78,7 +78,7 @@ const Footer = styled.footer`
 `;
 
 const FooterLink = styled.a`
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
   text-decoration: none !important;
   font-weight: ${WEIGHTS.normal};
 `;
