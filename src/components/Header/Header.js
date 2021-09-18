@@ -25,7 +25,7 @@ const Header = () => {
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/collections">Collections Collections Collections</NavLink>
           <IconButton><Icon id="shopping-bag" strokeWidth={iconStrokeWidth} /></IconButton>
           <IconButton><Icon id="search" strokeWidth={iconStrokeWidth} /></IconButton>
           <IconButton onClick={() => setShowMobileMenu(true)}><Icon id="menu" strokeWidth={iconStrokeWidth} /></IconButton>
@@ -47,6 +47,7 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow-x: auto;  
   
   @media ${QUERIES.tabletAndDown} {
     border-top: 3px solid ${COLORS.gray[900]};
@@ -59,8 +60,12 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
-  margin: 0px 48px;  
+  gap: clamp(
+    1rem,
+    14vw - 10rem,
+    5rem
+  );
+  margin: 0px 48px;
   
   @media ${QUERIES.tabletAndDown} {
     margin-right: 0;  
@@ -85,6 +90,7 @@ const NavLink = styled.a`
   text-decoration: none;
   color: ${COLORS.gray[900]};
   font-weight: ${WEIGHTS.medium};
+  white-space: nowrap;
 
   &:first-of-type {
     color: ${COLORS.secondary};
