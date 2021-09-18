@@ -58,6 +58,7 @@ const MainHeader = styled.div`
     align-items: center;
     justify-content: flex-start;
     overflow-x: auto;
+    overflow-y: hidden;
   }
 `;
 
