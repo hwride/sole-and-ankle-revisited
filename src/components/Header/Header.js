@@ -5,7 +5,10 @@ import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import Icon from '../Icon'
+import UnstyledButton from '../UnstyledButton/UnstyledButton'
 
+const iconStrokeWidth = 2;
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
@@ -18,9 +21,9 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LeftSide>
           <Logo />
-        </Side>
+        </LeftSide>
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -28,8 +31,11 @@ const Header = () => {
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
+          <IconButton><Icon id="shopping-bag" strokeWidth={iconStrokeWidth} /></IconButton>
+          <IconButton><Icon id="search" strokeWidth={iconStrokeWidth} /></IconButton>
+          <IconButton><Icon id="menu" strokeWidth={iconStrokeWidth} /></IconButton>
         </Nav>
-        <Side />
+        <RightSide />
       </MainHeader>
 
       <MobileMenu
@@ -49,17 +55,32 @@ const MainHeader = styled.div`
   
   @media ${QUERIES.tabletAndDown} {
     border-top: 3px solid ${COLORS.gray[900]};
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: auto;
   }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
-  margin: 0px 48px;
+  margin: 0px 48px;  
+  
+  @media ${QUERIES.tabletAndDown} {
+    margin-right: 0;  
+    gap: 28px;
+  }
 `;
 
-const Side = styled.div`
+const LeftSide = styled.div`
   flex: 1;
+`;
+const RightSide = styled.div`
+  flex: 1;  
+  
+  @media ${QUERIES.tabletAndDown} {
+    display: none;
+  }
 `;
 
 const NavLink = styled.a`
@@ -71,6 +92,17 @@ const NavLink = styled.a`
 
   &:first-of-type {
     color: ${COLORS.secondary};
+  }
+   
+  @media ${QUERIES.tabletAndDown} {
+    display: none;
+  }
+`;
+
+const IconButton = styled(UnstyledButton)`
+  display: none;
+  @media ${QUERIES.tabletAndDown} {
+    display: revert;
   }
 `;
 
