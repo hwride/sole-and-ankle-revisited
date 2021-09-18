@@ -12,11 +12,6 @@ const iconStrokeWidth = 2;
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
-
   return (
     <header>
       <SuperHeader />
@@ -33,7 +28,7 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
           <IconButton><Icon id="shopping-bag" strokeWidth={iconStrokeWidth} /></IconButton>
           <IconButton><Icon id="search" strokeWidth={iconStrokeWidth} /></IconButton>
-          <IconButton><Icon id="menu" strokeWidth={iconStrokeWidth} /></IconButton>
+          <IconButton onClick={() => setShowMobileMenu(true)}><Icon id="menu" strokeWidth={iconStrokeWidth} /></IconButton>
         </Nav>
         <RightSide />
       </MainHeader>
